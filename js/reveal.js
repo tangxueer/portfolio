@@ -9,10 +9,10 @@
     return;
   }
 
-  // 读取 data-delay，写入 CSS 变量供 transition-delay 使用
+  // 读取 data-delay（单位 0.1s），设置 transition-delay
   reveals.forEach(function (el) {
-    var delay = el.getAttribute("data-delay") || 0;
-    el.style.setProperty("--reveal-delay", delay);
+    var step = parseInt(el.getAttribute("data-delay") || "0", 10);
+    el.style.transitionDelay = (step * 100) + "ms";
   });
 
   var observer = new IntersectionObserver(
@@ -24,7 +24,7 @@
         }
       });
     },
-    { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+    { threshold: 0.1, rootMargin: "0px 0px -30px 0px" }
   );
 
   reveals.forEach(function (el) { observer.observe(el); });

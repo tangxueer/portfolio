@@ -750,5 +750,7 @@ ul, ol { list-style: none; }
   .card-awards img { height: 200px; }
   .skills-grid { grid-template-columns: 1fr; }
   .section-en { display: none; }
+  .section-num { margin-right: 4px; }
+  .section-head { gap: var(--space-3); }
   .footer-inner { flex-direction: column; gap: var(--space-2); }
 }
