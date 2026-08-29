@@ -41,3 +41,5 @@ _live_*.png
 # git 仓库备份
 .git-backup-*/
 
+
+/site/live_*.png
