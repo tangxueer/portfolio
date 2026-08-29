@@ -19,4 +19,5 @@ node_modules/
 # 截图与本地预览临时文件
 _preview*.png
 _v2_*.png
+_live_*.png
 
