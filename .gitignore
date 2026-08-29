@@ -1,0 +1,17 @@
+# 系统与编辑器临时文件
+.DS_Store
+Thumbs.db
+~$*
+*.tmp
+*.log
+
+# 编辑器
+.vscode/
+.idea/
+
+# 本地预览工具
+node_modules/
+.serve/
+
+# 素材源目录（如需纳入版本管理可删除此行）
+所需材料/
