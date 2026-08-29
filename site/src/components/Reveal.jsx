@@ -8,6 +8,19 @@ export default function Reveal({ as: Tag = 'div', className = '', delay = 0, chi
   useEffect(() => {
     const el = ref.current
     if (!el) return
+
+    // 挂载时立即检查：元素已在视口内则直接显示（避免 IO 异步不触发的边界问题）
+    const rect = el.getBoundingClientRect()
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      setInView(true)
+      return
+    }
+
+    if (!('IntersectionObserver' in window)) {
+      setInView(true)
+      return
+    }
+
     const io = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -15,7 +28,7 @@ export default function Reveal({ as: Tag = 'div', className = '', delay = 0, chi
           io.disconnect()
         }
       },
-      { threshold: 0.12, rootMargin: '0px 0px -30px 0px' },
+      { threshold: 0.05, rootMargin: '0px 0px 0px 0px' },
     )
     io.observe(el)
     return () => io.disconnect()
