@@ -25,3 +25,9 @@ _live_*.png
 *.doc
 *.docx
 
+# WorkBuddy 工作区元数据与工作日志
+.workbuddy/
+
+# 参考素材（设计参考图等，不纳入公开仓库）
+参考截图/
+
