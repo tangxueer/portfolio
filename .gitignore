@@ -19,7 +19,14 @@ node_modules/
 # 截图与本地预览临时文件
 _preview*.png
 _v2_*.png
+_v3_*.png
+_v4_*.png
 _live_*.png
+/site/shot_*.png
+/site/v[0-9]*.png
+/site/v[0-9]_*.*.png
+/site/final_*.png
+/site/shot_*.*.png
 
 # 个人隐私文档（不入库，避免公开仓库泄露）
 *.doc
