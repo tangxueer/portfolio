@@ -38,10 +38,6 @@ export default function Hero() {
         <Reveal as="p" delay={420} style={{ maxWidth: 320, fontSize: 13, letterSpacing: '0.14em', textTransform: 'uppercase', color: 'rgba(234,242,251,0.4)', lineHeight: 2 }}>
           Urban Planning &amp; Design<br />Shanghai, China
         </Reveal>
-        <Reveal as="div" className="hero-card" delay={480}>
-          <p className="hero-card-label"><span>最新动态 News</span><span>2026.08</span></p>
-          <p className="hero-card-title">"上海2035"总规实施评估与动态维护获 2025 年度上海市优秀国土空间规划成果一等奖</p>
-        </Reveal>
       </div>
 
       <div className="scroll-hint">Scroll</div>
