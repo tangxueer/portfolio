@@ -23,10 +23,6 @@ export default function PlaceholderSection({ id, title, en, desc, note }) {
   )
 }
 
-export function MicroSection() {
-  const d = projects.micro
-  return <PlaceholderSection id="micro" title={d.title} en={d.en} desc={d.desc} note="微观维度项目整理中 · 6 个项目即将上线" />
-}
 export function VerticalSection() {
   const d = projects.vertical
   return <PlaceholderSection id="vertical" title={d.title} en={d.en} desc={d.desc} note="纵向维度项目整理中" />

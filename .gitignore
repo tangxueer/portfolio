@@ -44,3 +44,10 @@ _live_*.png
 
 /site/live_*.png
 /site/chk_*.png
+
+# 离线包与临时脚本（不入库）
+/portfolio-offline.zip
+/_compress_micro.py
+
+# 个人隐私文档
+/提示词.md

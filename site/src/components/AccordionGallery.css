@@ -1,0 +1,201 @@
+/* React Bits · AccordionGallery（按站点暗色钴蓝主题适配） */
+
+.accordion-gallery {
+  --ag-accent: #4a9ae8;
+  --ag-text: #f0f6fc;
+  --ag-gap: 12px;
+  --ag-radius: 14px;
+  --ag-media-size: 320px;
+
+  display: flex;
+  flex-direction: row;
+  gap: var(--ag-gap);
+  width: 100%;
+  max-width: 100%;
+  perspective: 1400px;
+  perspective-origin: 50% 50%;
+}
+
+.accordion-gallery--vertical {
+  flex-direction: column;
+}
+
+.ag-panel {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  border-radius: var(--ag-radius);
+  cursor: pointer;
+  display: block;
+  text-decoration: none;
+  outline: none;
+  transform-style: preserve-3d;
+  transform-origin: center center;
+  background: #071a30;
+  box-shadow: 0 18px 46px -22px rgba(0, 0, 0, 0.9);
+  will-change: flex-grow, transform;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* 仅可跳转的卡片给出指针反馈 */
+.ag-panel--linked {
+  cursor: pointer;
+}
+
+.ag-panel:focus-visible {
+  box-shadow:
+    0 0 0 2px var(--ag-accent),
+    0 18px 46px -22px rgba(0, 0, 0, 0.9);
+}
+
+.ag-panel__frame {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: inherit;
+}
+
+.ag-panel__media {
+  --ag-gray: 1;
+  --ag-dim: 0.35;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--ag-media-size);
+  height: 100%;
+  filter: grayscale(var(--ag-gray));
+  will-change: transform, filter;
+}
+
+.accordion-gallery--vertical .ag-panel__media {
+  width: 100%;
+  height: var(--ag-media-size);
+}
+
+.ag-panel__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* 底部可读性渐变 + 收起态压暗（用 rgba 而非 color-mix，兼容性更稳） */
+.ag-panel__overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, transparent 38%, rgba(6, 19, 37, 0.9) 100%),
+    rgba(6, 19, 37, var(--ag-dim, 0.35));
+}
+
+/* 收起态竖排编号 */
+.ag-panel__tag {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  writing-mode: vertical-rl;
+  font-size: 11px;
+  letter-spacing: 0.34em;
+  color: rgba(240, 246, 252, 0.72);
+  pointer-events: none;
+  z-index: 2;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+}
+
+.ag-panel__label {
+  position: absolute;
+  left: 22px;
+  right: 22px;
+  bottom: 22px;
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.ag-panel__bar {
+  flex: 0 0 auto;
+  width: 3px;
+  height: 34px;
+  border-radius: 3px;
+  background: var(--ag-accent);
+  opacity: 0;
+  box-shadow: 0 0 14px rgba(74, 154, 232, 0.6);
+}
+
+.ag-panel__text {
+  color: var(--ag-text);
+  font-family: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  min-width: 0;
+  opacity: 0;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.55);
+}
+
+.ag-index {
+  font-style: normal;
+  font-size: 11px;
+  letter-spacing: 0.32em;
+  color: var(--ag-accent);
+}
+
+/* 中文项目名允许换行，避免被 ellipsis 截断 */
+.ag-name {
+  font-weight: 600;
+  font-size: clamp(15px, 1.15vw, 23px);
+  line-height: 1.34;
+  letter-spacing: 0.01em;
+  white-space: normal;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.ag-kw {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: rgba(240, 246, 252, 0.72);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ag-go {
+  margin-top: 2px;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  color: var(--ag-accent);
+}
+
+@media (max-width: 900px) {
+  .accordion-gallery {
+    flex-direction: column;
+    perspective: none;
+    height: auto !important;
+  }
+  .ag-panel {
+    min-height: 96px;
+    transform: none !important;
+  }
+  .accordion-gallery .ag-panel__media {
+    width: 100%;
+    height: var(--ag-media-size);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ag-panel,
+  .ag-panel__media {
+    will-change: auto;
+  }
+}

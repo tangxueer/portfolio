@@ -5,7 +5,8 @@ import Hero from '../components/Hero.jsx'
 import About from '../components/About.jsx'
 import Diamond from '../components/Diamond.jsx'
 import MacroSection from '../components/MacroSection.jsx'
-import { MicroSection, VerticalSection, HorizontalSection, ResearchSection, SkillsSection } from '../components/Sections.jsx'
+import MicroSection from '../components/MicroSection.jsx'
+import { VerticalSection, HorizontalSection, ResearchSection, SkillsSection } from '../components/Sections.jsx'
 import Footer from '../components/Footer.jsx'
 
 export default function Home() {

@@ -176,7 +176,7 @@ export default function Diamond({ onNavigate }) {
 
   const labels = [
     { key: 'macro', zh: '宏观', en: 'MACRO', target: 'macro' },
-    { key: 'micro', zh: '微观', en: 'MICRO', target: 'micro', disabled: true },
+    { key: 'micro', zh: '微观', en: 'MICRO', target: 'micro' },
     { key: 'vertical', zh: '纵向', en: 'VERTICAL', target: 'vertical', disabled: true },
     { key: 'horizontal', zh: '横向', en: 'HORIZONTAL', target: 'horizontal', disabled: true },
   ]

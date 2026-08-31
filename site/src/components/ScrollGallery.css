@@ -1,0 +1,111 @@
+/* 滚动驱动的叠图切换（Scroll-Transition 风格） */
+
+.sg-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.sg-stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  background: #04101f;
+}
+
+.sg-stack {
+  position: absolute;
+  inset: 0;
+}
+
+.sg-item {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  overflow: hidden;
+  transform-origin: center center;
+  will-change: clip-path, transform;
+  box-shadow: 0 30px 90px -40px rgba(0, 0, 0, 0.9);
+}
+
+.sg-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  background: rgba(6, 19, 37, 0.25);
+}
+
+/* 顶部与底部压暗，保证 HUD 与序号可读 */
+.sg-stage::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(4, 16, 31, 0.55) 0%, transparent 22%),
+    linear-gradient(0deg, rgba(4, 16, 31, 0.72) 0%, transparent 30%);
+}
+
+.sg-hud {
+  position: absolute;
+  left: clamp(28px, 4vw, 64px);
+  bottom: clamp(38px, 6vh, 68px);
+  z-index: 20;
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+}
+
+.sg-cur {
+  font-size: clamp(38px, 4.2vw, 66px);
+  font-weight: 700;
+  line-height: 1;
+  color: var(--ink, #f0f6fc);
+  font-variant-numeric: tabular-nums;
+}
+
+.sg-sep {
+  width: 46px;
+  height: 1px;
+  background: rgba(240, 246, 252, 0.4);
+  transform: translateY(-6px);
+}
+
+.sg-total {
+  font-size: 15px;
+  letter-spacing: 0.16em;
+  color: rgba(240, 246, 252, 0.55);
+  font-variant-numeric: tabular-nums;
+}
+
+.sg-cap {
+  margin-left: 12px;
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  color: var(--accent-bright, #4a9ae8);
+}
+
+.sg-progress {
+  position: absolute;
+  left: clamp(28px, 4vw, 64px);
+  right: clamp(28px, 4vw, 64px);
+  bottom: clamp(20px, 3vh, 30px);
+  height: 2px;
+  background: rgba(240, 246, 252, 0.16);
+  z-index: 20;
+}
+
+.sg-progress > span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-deep, #1b5fbf), var(--accent-bright, #4a9ae8));
+  transform-origin: left center;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sg-item {
+    will-change: auto;
+  }
+}

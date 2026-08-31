@@ -40,7 +40,9 @@ html {
 }
 
 body {
-  background: var(--bg-deep);
+  /* 背景必须透明：body 的不透明背景会绘制在负 z-index 的 .site-bg 海洋层之上，导致其不可见。
+     最底层兜底色由 html 提供。 */
+  background: transparent;
   color: var(--ink);
   font-family: var(--font-sans);
   font-size: 16px;
@@ -48,6 +50,33 @@ body {
   overflow-x: clip;
   -webkit-font-smoothing: antialiased;
 }
+
+/* ============ 全局海洋背景（除 HERO 外所有页可见） ============ */
+/* HERO 的 .hero-media 有不透明底色（#061325 + 天际线图），会自然遮住此层 */
+.site-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -3;
+  pointer-events: none;
+  background: var(--bg-deep);
+}
+/* 层 1 · 海洋纹理：透明度 30% */
+.site-bg__texture {
+  position: absolute;
+  inset: 0;
+  background: url(../assets/hero/ocean-texture.jpg) center / cover no-repeat;
+  opacity: 0.3;
+}
+/* 层 2 · 深色压暗：只轻微压暗，保住纹理观感（位于 LineWaves 画布之下） */
+.site-bg__tint {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(6, 19, 37, 0.08), rgba(6, 19, 37, 0.2));
+}
+/* 层 3 · LineWaves 波浪线画布（鼠标经过处缓慢流动） */
+.site-bg__waves { position: absolute; inset: 0; }
+.lw-holder { position: absolute; inset: 0; }
+.lw-canvas { width: 100%; height: 100%; display: block; }
 
 img { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
@@ -234,7 +263,7 @@ ul, ol { list-style: none; }
   font-family: var(--font-serif);
   font-weight: 600;
   letter-spacing: 0.06em;
-  font-size: 0.62em;
+  font-size: clamp(18px, 1.6vw, 26px);
   margin-top: 10px;
   color: var(--ink);
   text-shadow: 0 2px 18px rgba(6, 19, 37, 0.8);
@@ -873,7 +902,8 @@ ul, ol { list-style: none; }
 }
 .detail-media img {
   width: 100%; height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  background: rgba(6, 19, 37, 0.35);
 }
 .detail-media::after {
   content: "";
@@ -1041,11 +1071,71 @@ ul, ol { list-style: none; }
   .scroll-hint::after { animation: none; }
 }
 
+/* ============ 微观 MICRO 标签页（左标题 + 右 4 卡手风琴） ============ */
+.micro-grid {
+  display: grid;
+  grid-template-columns: 0.72fr 2fr;
+  gap: clamp(40px, 5vw, 92px);
+  align-items: center;
+  width: 100%;
+}
+.micro-intro { display: flex; flex-direction: column; justify-content: center; }
+.micro-intro .dim-tag {
+  font-size: 13px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 18px;
+}
+.micro-intro h3 {
+  font-size: clamp(38px, 3.6vw, 58px);
+  font-weight: 700;
+  line-height: 1.22;
+  letter-spacing: 0.02em;
+  text-wrap: balance;
+}
+.micro-intro p {
+  margin-top: clamp(20px, 3.4vh, 32px);
+  color: var(--ink-dim);
+  font-size: clamp(14.5px, 1.05vw, 16.5px);
+  line-height: 2.05;
+  max-width: 26em;
+}
+.micro-intro .scroll-next {
+  margin-top: clamp(26px, 4.6vh, 44px);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  color: var(--ink-faint);
+}
+.micro-gallery { min-width: 0; }
+
+/* ============ 详情页 · 滚动图集 ============ */
+.sg-section {
+  position: relative;
+  padding-bottom: clamp(40px, 8vh, 90px);
+}
+.sg-head {
+  padding-top: clamp(60px, 9vh, 110px);
+  padding-bottom: clamp(24px, 4vh, 44px);
+}
+.sg-hint {
+  margin-left: auto;
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
 /* ============ 响应式（PC 优先，最低 1024 保底） ============ */
 @media (max-width: 1280px) {
   .about-grid { grid-template-columns: 1fr 1.2fr; }
   .macro-grid { grid-template-columns: 1fr; }
   .macro-cards { grid-template-rows: none; grid-template-columns: 1fr 1fr; }
+  .micro-grid { grid-template-columns: 1fr; }
+  .micro-intro p { max-width: 100%; }
   .detail-hero { grid-template-columns: 1fr; }
   .detail-media { height: 56vh; }
   .award-panel { grid-template-columns: 1fr; }
