@@ -7,7 +7,8 @@ import Diamond from '../components/Diamond.jsx'
 import MacroSection from '../components/MacroSection.jsx'
 import MicroSection from '../components/MicroSection.jsx'
 import HorizontalSection from '../components/HorizontalSection.jsx'
-import { VerticalSection, ResearchSection, SkillsSection } from '../components/Sections.jsx'
+import VerticalSection from '../components/VerticalSection.jsx'
+import { ResearchSection, SkillsSection } from '../components/Sections.jsx'
 import Footer from '../components/Footer.jsx'
 
 export default function Home() {

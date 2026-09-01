@@ -49,6 +49,7 @@ _live_*.png
 /portfolio-offline.zip
 /_compress_micro.py
 /_compress_horizontal.py
+/_process_vertical_assets.py
 
 # Python 隔离虚拟环境（仅用于本地图像处理，不入库）
 /.venv/

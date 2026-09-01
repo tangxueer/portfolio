@@ -5,6 +5,7 @@ import Home from './pages/Home.jsx'
 import ProjectMacro1 from './pages/ProjectMacro1.jsx'
 import ProjectMacro2 from './pages/ProjectMacro2.jsx'
 import ProjectMicro1 from './pages/ProjectMicro1.jsx'
+import ProjectVertical1 from './pages/ProjectVertical1.jsx'
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
         <Route path="/project/macro-1" element={<ProjectMacro1 />} />
         <Route path="/project/macro-2" element={<ProjectMacro2 />} />
         <Route path="/project/micro-1" element={<ProjectMicro1 />} />
+        <Route path="/project/vertical-1" element={<ProjectVertical1 />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </>

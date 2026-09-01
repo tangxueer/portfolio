@@ -1,5 +1,4 @@
 import Reveal from './Reveal.jsx'
-import { projects } from '../data/content.js'
 
 /** 未完成的维度标签页 / 模块占位 */
 export default function PlaceholderSection({ id, title, en, desc, note }) {
@@ -23,10 +22,6 @@ export default function PlaceholderSection({ id, title, en, desc, note }) {
   )
 }
 
-export function VerticalSection() {
-  const d = projects.vertical
-  return <PlaceholderSection id="vertical" title={d.title} en={d.en} desc={d.desc} note="纵向维度项目整理中" />
-}
 export function ResearchSection() {
   return <PlaceholderSection id="research" title="研究沉淀" en="RESEARCH" desc="著作 · 论文 · 课题 · 学术交流" note="研究模块规划中" />
 }
