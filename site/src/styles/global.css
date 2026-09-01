@@ -101,7 +101,7 @@ ul, ol { list-style: none; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 22px var(--gutter);
+  padding: 32px var(--gutter);
   transition: background 0.35s ease, backdrop-filter 0.35s ease;
 }
 .nav.solid {
@@ -112,32 +112,32 @@ ul, ol { list-style: none; }
 .nav-logo {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
   font-weight: 700;
-  font-size: 17px;
+  font-size: 21px;
   letter-spacing: 0.04em;
 }
 .nav-logo-mark {
-  width: 26px; height: 26px;
+  width: 34px; height: 34px;
   border: 1.5px solid var(--ink);
   display: grid;
   place-items: center;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 800;
   letter-spacing: 0;
 }
 .nav-menu {
   display: flex;
-  gap: 6px;
+  gap: 10px;
 }
 .nav-menu a {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 9px 18px;
-  font-size: 12.5px;
+  gap: 12px;
+  padding: 13px 26px;
+  font-size: 18px;
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--ink-dim);
   border: 1px solid transparent;
@@ -163,13 +163,11 @@ ul, ol { list-style: none; }
   position: relative;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  align-items: flex-start;
   overflow: hidden;
-  background: #000;
+  background: #061325;
   isolation: isolate;
 }
-/* 暂用全黑视频背景占位：底部蓝色地平线光 + 网格线框氛围 */
 .hero-media {
   position: absolute;
   inset: 0;
@@ -180,136 +178,73 @@ ul, ol { list-style: none; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 38%;
+  object-position: center top;
 }
+/* 极轻左侧压暗 + 底部渐变到深蓝，让 HERO 与下一页过渡自然 */
 .hero-media::after {
   content: "";
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg,
-      rgba(6, 19, 37, 0.55) 0%,
-      rgba(6, 19, 37, 0.42) 18%,
-      rgba(8, 26, 50, 0.55) 42%,
-      rgba(6, 19, 37, 0.78) 72%,
-      rgba(6, 19, 37, 0.95) 100%),
-    radial-gradient(120% 50% at 50% 110%, rgba(31, 104, 169, 0.3) 0%, transparent 70%);
+    linear-gradient(180deg, transparent 55%, rgba(6, 19, 37, 0.55) 80%, rgba(6, 19, 37, 0.95) 100%),
+    linear-gradient(95deg, rgba(6, 19, 37, 0.28) 0%, rgba(6, 19, 37, 0.10) 32%, transparent 50%);
 }
-/* 线框装饰 */
-.hero-gridlines {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  opacity: 0.5;
-}
-.hero-gridlines span {
-  position: absolute;
-  border: 1px solid rgba(240, 246, 252, 0.1);
-}
-.hero-gridlines .gl-1 { left: 6%; top: 18%; width: 26vw; height: 40vh; }
-.hero-gridlines .gl-2 { right: 8%; top: 10%; width: 18vw; height: 26vh; border-color: rgba(240, 246, 252, 0.1); }
-.hero-gridlines .gl-3 { right: 22%; bottom: 16%; width: 10vw; height: 14vh; }
-.hero-cross {
-  position: absolute;
-  left: 50%; top: 32%;
-  width: 44px; height: 44px;
-  transform: translate(-50%, -50%);
-  z-index: -1;
-  opacity: 0.5;
-}
-.hero-cross::before, .hero-cross::after {
-  content: "";
-  position: absolute;
-  background: rgba(240, 246, 252, 0.35);
-}
-.hero-cross::before { left: 50%; top: 0; width: 1px; height: 100%; }
-.hero-cross::after { top: 50%; left: 0; height: 1px; width: 100%; }
 
 .hero-inner {
   width: 100%;
   max-width: var(--page-w);
   margin: 0 auto;
-  padding: 0 var(--gutter) clamp(48px, 7vh, 88px);
+  padding: clamp(150px, 16vh, 200px) var(--gutter) clamp(48px, 8vh, 96px);
   position: relative;
   z-index: 2;
 }
-.hero-kicker {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: clamp(16px, 3vh, 30px);
-  font-size: 13px;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: var(--ink-dim);
-  text-shadow: 0 1px 12px rgba(6, 19, 37, 0.7);
-}
-.hero-kicker::before {
-  content: "";
-  width: 40px; height: 1px;
-  background: var(--accent);
-}
+/* 主标题 TANG / SHARE：经典衬线大写（按图），两行紧贴 */
 .hero-title {
-  font-size: clamp(64px, 9.5vw, 158px);
+  font-family: "Songti SC", "Source Han Serif SC", "Noto Serif SC", "STSong", "SimSun", Georgia, "Times New Roman", serif;
+  font-size: clamp(64px, 10.5vw, 172px);
   font-weight: 700;
-  line-height: 0.98;
-  letter-spacing: -0.015em;
+  line-height: 0.88;
+  letter-spacing: 0.005em;
   text-transform: uppercase;
-  text-shadow: 0 4px 32px rgba(6, 19, 37, 0.75);
+  color: #ffffff;
+  text-shadow: 0 2px 18px rgba(6, 19, 37, 0.35);
 }
-.hero-title .zh {
-  display: block;
-  font-family: var(--font-serif);
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  font-size: clamp(18px, 1.6vw, 26px);
-  margin-top: 10px;
-  color: var(--ink);
-  text-shadow: 0 2px 18px rgba(6, 19, 37, 0.8);
-}
-.hero-sub {
-  margin-top: clamp(20px, 3.4vh, 34px);
-  max-width: 560px;
-  color: var(--ink-dim);
-  font-size: clamp(15px, 1.1vw, 18px);
-  line-height: 1.8;
-  text-shadow: 0 1px 14px rgba(6, 19, 37, 0.7);
-}
-.hero-cta {
+/* 三行中文副标题：按图为深色字压在亮背景 */
+.hero-byline {
+  margin-top: clamp(14px, 2.4vh, 26px);
   display: flex;
-  align-items: stretch;
-  gap: 10px;
-  margin-top: clamp(26px, 4.4vh, 44px);
+  flex-direction: column;
+  gap: 2px;
+  color: #ffffff;
+  font-size: clamp(15px, 1.2vw, 19px);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 1.55;
 }
-.btn-block {
+.hero-byline p { margin: 0; }
+/* 深色填充按钮 + 箭头 ↗ */
+.hero-cta { margin-top: clamp(22px, 3.6vh, 36px); }
+.hero-btn {
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  padding: 0 26px;
-  height: 52px;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  transition: transform 0.3s var(--ease-out), background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  padding: 0 22px;
+  height: 42px;
+  background: #1a1f2e;
+  color: #ffffff;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  border-radius: 4px;
+  transition: background 0.25s ease, transform 0.3s var(--ease-out);
 }
-.btn-block .arrow { transition: transform 0.3s var(--ease-out); }
-.btn-block:hover .arrow { transform: translateX(5px); }
-.btn-primary {
-  background: var(--ink);
-  color: #061325;
+.hero-btn:hover { background: #0f1219; transform: translateY(-2px); }
+.hero-btn-arrow {
+  font-size: 14px;
+  display: inline-block;
+  transition: transform 0.3s var(--ease-out);
 }
-.btn-primary:hover { background: #fff; transform: translateY(-2px); }
-.btn-ghost {
-  border: 1px solid var(--line-strong);
-  color: var(--ink-dim);
-}
-.btn-ghost:hover {
-  color: var(--ink);
-  border-color: var(--ink);
-  transform: translateY(-2px);
-}
+.hero-btn:hover .hero-btn-arrow { transform: translate(2px, -2px); }
 
 .hero-foot {
   position: absolute;
