@@ -93,7 +93,7 @@ ul, ol { list-style: none; }
   padding-right: var(--gutter);
 }
 
-/* ============ 导航（sharplink 方块按钮组） ============ */
+/* ============ 导航（精简窄栏） ============ */
 .nav {
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -101,7 +101,7 @@ ul, ol { list-style: none; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 32px var(--gutter);
+  padding: 14px var(--gutter);
   transition: background 0.35s ease, backdrop-filter 0.35s ease;
 }
 .nav.solid {
@@ -110,34 +110,24 @@ ul, ol { list-style: none; }
   -webkit-backdrop-filter: blur(14px);
 }
 .nav-logo {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 14px;
   font-weight: 700;
-  font-size: 21px;
-  letter-spacing: 0.04em;
-}
-.nav-logo-mark {
-  width: 34px; height: 34px;
-  border: 1.5px solid var(--ink);
-  display: grid;
-  place-items: center;
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 0;
+  font-size: 14px;
+  letter-spacing: 0.16em;
 }
 .nav-menu {
   display: flex;
-  gap: 10px;
+  gap: 6px;
 }
 .nav-menu a {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  padding: 13px 26px;
-  font-size: 18px;
+  gap: 8px;
+  padding: 7px 14px;
+  font-size: 12px;
   font-weight: 600;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--ink-dim);
   border: 1px solid transparent;
@@ -153,8 +143,8 @@ ul, ol { list-style: none; }
   background: rgba(240, 246, 252, 0.06);
 }
 .nav-menu a .zh {
-  font-size: 12px;
-  letter-spacing: 0.2em;
+  font-size: 10px;
+  letter-spacing: 0.22em;
   color: var(--ink-faint);
 }
 
@@ -194,7 +184,7 @@ ul, ol { list-style: none; }
   width: 100%;
   max-width: var(--page-w);
   margin: 0 auto;
-  padding: clamp(150px, 16vh, 200px) var(--gutter) clamp(48px, 8vh, 96px);
+  padding: clamp(110px, 12vh, 150px) var(--gutter) clamp(48px, 8vh, 96px);
   position: relative;
   z-index: 2;
 }
@@ -1046,6 +1036,124 @@ ul, ol { list-style: none; }
   color: var(--ink-faint);
 }
 .micro-gallery { min-width: 0; }
+
+/* ============ 横向 HORIZONTAL · 行式列表 + 光标跟随展示图 ============ */
+/* 横向模块专用 shell：覆盖默认居中，改为左对齐 + 拉宽；
+   关键是 width:100%，否则在 .panel 这个 flex 容器里会被内容「吸」窄 */
+.horiz-shell { margin: 0; max-width: none; width: 100%; }
+
+/* 横向 panel：压缩上下 padding，让一屏能放下 */
+.horiz-panel { padding: clamp(48px, 6vh, 72px) 0; }
+
+.horiz-intro { max-width: 46em; }
+.horiz-intro .dim-tag {
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+.horiz-intro h3 {
+  font-size: clamp(30px, 2.8vw, 44px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  text-wrap: balance;
+}
+.horiz-intro p {
+  margin-top: clamp(14px, 2vh, 20px);
+  color: var(--ink-dim);
+  font-size: clamp(13.5px, 0.95vw, 15px);
+  line-height: 1.75;
+  /* 不再限宽 30em，让小字撑满整行，减少换行 */
+  max-width: none;
+}
+
+.horiz-list {
+  margin-top: clamp(24px, 3.6vh, 40px);
+  border-top: 1px solid var(--line);
+}
+.horiz-row {
+  position: relative;
+  display: flex;
+  align-items: baseline;
+  gap: clamp(8px, 1vw, 16px);
+  padding: clamp(12px, 1.8vh, 20px) 0;
+  border-bottom: 1px solid var(--line);
+  cursor: pointer;
+  outline: none;
+  transition: opacity 0.4s ease, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+/* 悬浮任一行时，其余行淡出，聚焦当前行 */
+.horiz-list.is-hovering .horiz-row:not(.is-active) { opacity: 0.28; }
+.horiz-row.is-active { transform: translateX(clamp(6px, 0.8vw, 14px)); }
+
+/* 左侧副标题：描边文字（参考 jingjinghan web design），文字 fill 透明、外缘浅描边 */
+.horiz-row-dept {
+  font-size: clamp(22px, 1.9vw, 30px);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  color: transparent;
+  -webkit-text-stroke: 1.2px rgba(234, 242, 251, 0.55);
+  transition: color 0.35s ease, -webkit-text-stroke-color 0.35s ease;
+  flex: none;
+}
+/* 副标题前的 "+" 前缀（继承父级描边样式） */
+.horiz-row-dept::before {
+  content: "+";
+  margin-right: 0.3em;
+  font-weight: 400;
+  opacity: 0.85;
+}
+/* 右侧名称：margin-left:auto 把它推到右侧；与小字同字号 */
+.horiz-row-name {
+  margin-left: auto;
+  font-size: clamp(13.5px, 0.95vw, 15px);
+  line-height: 1.7;
+  letter-spacing: 0.02em;
+  color: var(--ink-dim);
+  text-align: right;
+  white-space: nowrap;
+}
+/* 右侧小箭头（参考 jingjinghan web design） */
+.horiz-row-arrow {
+  flex: none;
+  font-size: clamp(16px, 1.4vw, 20px);
+  line-height: 1;
+  color: var(--ink-faint);
+  margin-left: clamp(8px, 1vw, 16px);
+  transition: color 0.35s ease, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.horiz-row.is-active .horiz-row-dept {
+  color: var(--accent);
+  -webkit-text-stroke-color: var(--accent);
+}
+.horiz-row.is-active .horiz-row-name { color: var(--ink); }
+.horiz-row.is-active .horiz-row-arrow {
+  color: var(--accent);
+  transform: translate(3px, -3px);
+}
+.horiz-row:focus-visible { opacity: 1; }
+.horiz-row:focus-visible .horiz-row-dept { color: var(--accent); }
+
+/* 跟随光标的展示图：单图、自然宽高比、尺寸减半（transform 由 JS 写入） */
+.horiz-preview {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 60;
+  pointer-events: none;
+  display: block;
+  width: clamp(160px, 13vw, 220px);
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  will-change: transform;
+}
+.horiz-preview.is-visible { opacity: 1; }
 
 /* ============ 详情页 · 滚动图集 ============ */
 .sg-section {

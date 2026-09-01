@@ -27,10 +27,6 @@ export function VerticalSection() {
   const d = projects.vertical
   return <PlaceholderSection id="vertical" title={d.title} en={d.en} desc={d.desc} note="纵向维度项目整理中" />
 }
-export function HorizontalSection() {
-  const d = projects.horizontal
-  return <PlaceholderSection id="horizontal" title={d.title} en={d.en} desc={d.desc} note="横向维度项目整理中" />
-}
 export function ResearchSection() {
   return <PlaceholderSection id="research" title="研究沉淀" en="RESEARCH" desc="著作 · 论文 · 课题 · 学术交流" note="研究模块规划中" />
 }

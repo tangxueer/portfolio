@@ -48,6 +48,10 @@ _live_*.png
 # 离线包与临时脚本（不入库）
 /portfolio-offline.zip
 /_compress_micro.py
+/_compress_horizontal.py
+
+# Python 隔离虚拟环境（仅用于本地图像处理，不入库）
+/.venv/
 
 # 个人隐私文档
 /提示词.md

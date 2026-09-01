@@ -41,7 +41,6 @@ export default function Navbar() {
   return (
     <header className={`nav ${solid ? 'solid' : ''}`}>
       <Link className="nav-logo" to="/">
-        <span className="nav-logo-mark">TX</span>
         <span>TANGSHARE</span>
       </Link>
       <nav className="nav-menu" aria-label="主导航">
