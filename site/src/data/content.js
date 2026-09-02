@@ -105,6 +105,60 @@ export const projects = {
       },
     ],
   },
+  research: {
+    id: 'research',
+    zh: '深度',
+    en: 'DEPTH',
+    title: '深入专题学术研究',
+    desc: '坚持项目与研究双向赋能，持续深耕创新空间、人口公服专题研究，以丰富的研究成果反哺项目实践。',
+    items: [
+      {
+        slug: 'research-1',
+        type: '专著',
+        name: '全球城市创新空间发展与规划策略研究',
+        image: './assets/research/research1.jpg',
+      },
+      {
+        slug: 'research-2',
+        type: '内刊',
+        name: '规资综研-旧金山湾区系统布局基础研究和科技创新',
+        image: './assets/research/research2.jpg',
+        flip: true,
+      },
+      {
+        slug: 'research-3',
+        type: '学术交流',
+        name: '院分享学堂2026年第一期',
+        image: './assets/research/research3.jpg',
+      },
+      {
+        slug: 'research-4',
+        type: '市政府决策咨询课题',
+        name: '上海构建与人口变化趋势相适应的教育资源统筹机制研究',
+        image: './assets/research/research4.jpg',
+      },
+      {
+        slug: 'research-5',
+        type: '学组',
+        name: '公共服务专项学组年度跟踪研究报告',
+        image: './assets/research/research5.jpg',
+      },
+      {
+        slug: 'research-6',
+        type: '核心期刊',
+        name: '上海城市规划-基于住房类型的上海大型居住社区生活圈供需匹配评估',
+        image: './assets/research/research6.jpg',
+      },
+    ],
+    flipPages: [
+      './assets/research/flip-1.jpg',
+      './assets/research/flip-2.jpg',
+      './assets/research/flip-3.jpg',
+      './assets/research/flip-4.jpg',
+      './assets/research/flip-5.jpg',
+      './assets/research/flip-6.jpg',
+    ],
+  },
   horizontal: {
     id: 'horizontal',
     zh: '横向',
@@ -152,6 +206,29 @@ export const projects = {
         preview: './assets/projects/horizontal5-preview.jpg',
         to: null,
       },
+    ],
+  },
+  width: {
+    id: 'width',
+    zh: '广度',
+    en: 'WIDTH',
+    title: '拓展技术技能广度',
+    desc: '探索新技术在规划业务中的实践应用，在量子城市总体工作部署下，投身"大略之眼"场景建设，提升总规指标监测、诊断问题、决策支撑的能力，为上海2050空间发展战略提供前期技术储备。',
+    // 6 球：pos 为相对 stage 的归一化坐标 (0..1)；size 相对于球1 的半径系数；color 取自参考图配色
+    // name = 完整中文（"类别-细节/细节/细节" 格式，不带英文前缀）；en = 英文类别
+    spheres: [
+      { id: 1, name: '数智规划-量子城市/大略之眼/上规智脑', en: 'AI Planning', color: '#3dd0ff', glow: '#7be6ff', pos: [0.40, 0.55], size: 1.00 },
+      { id: 2, name: '视频剪辑-摄影摄像/脚本策划/剪辑制作', en: 'Video Editing', color: '#ff3a5c', glow: '#ff7a8e', pos: [0.27, 0.22], size: 0.40 },
+      { id: 3, name: '产品策划-业务转译/功能架构/数据处理', en: 'Product Planning', color: '#2bd4c4', glow: '#6eeede', pos: [0.80, 0.27], size: 0.44 },
+      { id: 4, name: '网页设计-前端开发/UI', en: 'Web Design', color: '#ff9a3c', glow: '#ffc080', pos: [0.85, 0.66], size: 0.38 },
+      { id: 5, name: '辅助绘图-PS/GIS/CAD', en: 'Drawing', color: '#d44dff', glow: '#e89aff', pos: [0.11, 0.74], size: 0.34 },
+      { id: 6, name: '团队协作-多方沟通/交付节奏', en: 'Synergy', color: '#4a7bff', glow: '#8aa8ff', pos: [0.45, 0.91], size: 0.32 },
+    ],
+    // 球1 点击后弹出的 3 个视频
+    videos: [
+      { name: '大略之眼总规监测评估场景', src: './assets/skills/video-1.mp4' },
+      { name: '淀山湖世界级湖区国际方案征集启动会', src: './assets/skills/video-2.mp4' },
+      { name: '人工智能大会量子城市政务智能体', src: './assets/skills/video-3.mp4' },
     ],
   },
 }

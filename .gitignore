@@ -50,9 +50,21 @@ _live_*.png
 /_compress_micro.py
 /_compress_horizontal.py
 /_process_vertical_assets.py
+/_process_research_assets.py
 
 # Python 隔离虚拟环境（仅用于本地图像处理，不入库）
 /.venv/
 
 # 个人隐私文档
 /提示词.md
+
+# 构建产物（由 vite build 生成，不入库；部署走 CloudStudio 直传 dist 目录）
+/site/dist/
+
+# 调试 / 验证临时文件
+_cdp_probe*.mjs
+_shot*.png
+_shot2.png
+debug-home.png
+image.png
+site/vite.config.js.timestamp-*.mjs
