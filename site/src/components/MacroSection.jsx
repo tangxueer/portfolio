@@ -11,7 +11,7 @@ export default function MacroSection() {
       <div className="shell macro-grid">
         <Reveal className="macro-intro">
           <p className="dim-tag">Dimension 01 · {data.en}</p>
-          <h3>{data.title}</h3>
+          <h3 style={{ whiteSpace: 'pre-line' }}>{data.title}</h3>
           <p>{data.desc}</p>
           <p className="scroll-next">向下浏览项目详情 <span aria-hidden="true">↓</span></p>
         </Reveal>

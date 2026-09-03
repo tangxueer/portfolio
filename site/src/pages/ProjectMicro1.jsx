@@ -21,7 +21,7 @@ export default function ProjectMicro1() {
   const captions = (p.gallery || []).map((_, i) => `方案图 ${String(i + 1).padStart(2, '0')}`)
 
   return (
-    <main>
+    <main className="micro1-page">
       {/* Section 1 · 项目概况（左文右图，右侧保持原图比例不裁剪） */}
       <section className="detail-hero shell">
         <div className="detail-info">
@@ -39,12 +39,11 @@ export default function ProjectMicro1() {
         </div>
       </section>
 
-      {/* Section 2 · 滚动切换图集 */}
+      {/* Section 2 · 滚动切换图集（去掉"方案图集·Scroll"标题，只留 hint + 滚动图） */}
       <section className="sg-section">
         <div className="shell sg-head">
           <div className="sec-head">
             <span className="sec-index">GALLERY</span>
-            <h2 className="sec-title-zh">方案图集 · Scroll</h2>
             <span className="sg-hint">向下滚动，逐张浏览方案图纸</span>
           </div>
         </div>

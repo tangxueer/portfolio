@@ -15,7 +15,7 @@ export default function About() {
           </p>
           <p className="about-dept">区域与总体规划分院 · Shanghai Urban Planning &amp; Design Institute</p>
           <figure className="about-photo">
-            <img src="./assets/about/portrait.jpg" alt="汤雪儿证件照" />
+            <img src="./assets/about/portrait.jpg" alt="汤雪儿" />
             <figcaption>Tang Xue'er · 1999</figcaption>
           </figure>
         </Reveal>

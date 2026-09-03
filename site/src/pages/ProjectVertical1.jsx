@@ -44,14 +44,18 @@ export default function ProjectVertical1() {
         </div>
       </section>
 
-      {/* Section 2 · 瀑布流图集 */}
+      {/* Section 2 · 规划图集（最重要一张全宽置顶 + 其余瀑布流；用户要求删掉"规划图集·Masonry"标题，只留 GALLERY 索引 + 计数） */}
       <section className="pv1-gallery shell">
         <div className="sec-head">
           <span className="sec-index">GALLERY</span>
-          <h2 className="sec-title-zh">规划图集 · Masonry</h2>
           <span className="pv1-count">{items.length} FILES</span>
         </div>
-        {items.length > 0 && <Masonry items={items} columns={3} />}
+        {items.length > 0 && (
+          <figure className="pv1-featured">
+            <img src={items[0].img} alt={items[0].alt} />
+          </figure>
+        )}
+        {items.length > 1 && <Masonry items={items.slice(1)} columns={3} />}
       </section>
 
       <Footer />

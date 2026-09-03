@@ -4,7 +4,7 @@ export const projects = {
     id: 'macro',
     zh: '宏观',
     en: 'MACRO',
-    title: '以宏观视野洞察上海',
+    title: '以宏观视野\n洞察上海',
     desc: '投身总规动态维护和十五五近期规划，全程支撑报部、报奖相关工作，切实体会国家、上海市的发展蓝图如何转化为施工图、实景画。在常态化对接市级委办局、局机关各处室、院内各业务部门的协作过程中，不断校准规划工作者的定位，逐步建立起服务城市整体发展的宏观视野。',
     items: [
       {
@@ -96,10 +96,10 @@ export const projects = {
         cover: './assets/projects/vertical1-cover.jpg',
         to: '/project/vertical-1',
         gallery: [
+          './assets/projects/vertical1-p4.jpg',
           './assets/projects/vertical1-p1.jpg',
           './assets/projects/vertical1-p2.jpg',
           './assets/projects/vertical1-p3.jpg',
-          './assets/projects/vertical1-p4.jpg',
           './assets/projects/vertical1-p5.jpg',
         ],
       },
@@ -164,7 +164,7 @@ export const projects = {
     zh: '横向',
     en: 'HORIZONTAL',
     title: '横向拓展规划维度',
-    desc: '主动跳出规资条线固有边界，不断拓展“朋友圈”。参与与市绿容局联合编制的耕地保护和国土绿化空间专项规划，承接嘉定区青年发展友好型城市建设“十五五”规划编制，协助市发改委开展自贸试验区空间布局优化调整相关工作，在跨部门任务中理解多元主体诉求，丰富规划思考视角。',
+    desc: '跳出规资条线固有边界，承接其他委办局项目，丰富多维思考视角，不断拓展朋友圈。',
     items: [
       {
         slug: 'horizontal-1',
@@ -246,5 +246,5 @@ export const keywords = [
   { zh: '落地\n实施', en: 'Implementation' },
   { zh: '破圈\n拓维', en: 'Breaking Circles' },
   { zh: '深度\n研究', en: 'In-depth Research' },
-  { zh: '数智\n赋能', en: 'AI Empowerment' },
+  { zh: '技术\n赋能', en: 'Tech Empowerment' },
 ]

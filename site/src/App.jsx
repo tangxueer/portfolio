@@ -1,6 +1,7 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
 import Navbar from './components/Navbar.jsx'
 import LineWaves from './components/LineWaves.jsx'
+import MouseCursor from './components/MouseCursor.jsx'
 import Home from './pages/Home.jsx'
 import ProjectMacro1 from './pages/ProjectMacro1.jsx'
 import ProjectMacro2 from './pages/ProjectMacro2.jsx'
@@ -17,6 +18,7 @@ export default function App() {
         <LineWaves className="site-bg__waves" />
       </div>
       <Navbar />
+      <MouseCursor />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/project/macro-1" element={<ProjectMacro1 />} />

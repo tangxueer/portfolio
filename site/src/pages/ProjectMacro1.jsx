@@ -11,7 +11,7 @@ export default function ProjectMacro1() {
   useEffect(() => { window.scrollTo(0, 0) }, [])
 
   return (
-    <main>
+    <main className="macro1-page">
       {/* Section 1 · 项目概况（左文右图） */}
       <section className="detail-hero shell">
         <Reveal className="detail-info">
@@ -33,8 +33,8 @@ export default function ProjectMacro1() {
       <section className="award-panel shell">
         <p className="award-watermark" aria-hidden="true">Award</p>
         <Reveal className="award-info">
-          <h2>Award &amp; Honor*</h2>
-          <p className="zh-sub">所获荣誉</p>
+          <h2>项目荣誉</h2>
+          <p className="zh-sub">Honor</p>
           <div className="award-tags">
             <span className="award-tag-year">2025 年度</span>
             <span className="award-tag">上海市优秀国土空间规划成果</span>
@@ -47,20 +47,13 @@ export default function ProjectMacro1() {
           </p>
         </Reveal>
         <Reveal className="award-media" delay={150}>
-          <div className="frame">
-            <img src="./assets/projects/macro1-award.jpg" alt="2025年度上海市优秀国土空间规划成果一等奖证书" />
-            <img className="reflection" src="./assets/projects/macro1-award.jpg" alt="" aria-hidden="true" />
-          </div>
+          <img src="./assets/projects/macro1-award.jpg" alt="2025年度上海市优秀国土空间规划成果一等奖证书" />
         </Reveal>
       </section>
 
-      {/* Section 3 · 视频 */}
+      {/* Section 3 · 视频（去掉"动态维护·成片"标题，只留视频本身） */}
       <section className="video-panel shell">
-        <Reveal className="video-head">
-          <span className="sec-index">FILM</span>
-          <h2 className="sec-title-zh" style={{ fontSize: 'clamp(26px, 2.4vw, 38px)' }}>动态维护 · 成片</h2>
-        </Reveal>
-        <Reveal className="video-frame" delay={120}>
+        <Reveal className="video-frame">
           <video src="./assets/projects/macro1-video.mp4" controls preload="metadata" playsInline />
         </Reveal>
       </section>

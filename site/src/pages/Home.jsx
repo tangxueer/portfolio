@@ -36,13 +36,6 @@ export default function Home() {
       <About />
       {/* 模块页1：3D 钻石项目导航 */}
       <section className="diamond" id="projects">
-        <div className="shell" style={{ paddingTop: 'clamp(84px, 12vh, 130px)' }}>
-          <div className="sec-head" style={{ marginBottom: 0 }}>
-            <span className="sec-index">02</span>
-            <h2 className="sec-title-zh">项目</h2>
-            <span className="sec-title-en">PROJECTS</span>
-          </div>
-        </div>
         <Diamond onNavigate={scrollToSection} />
       </section>
       <MacroSection />
