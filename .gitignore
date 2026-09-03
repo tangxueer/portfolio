@@ -68,3 +68,8 @@ _shot2.png
 debug-home.png
 image.png
 site/vite.config.js.timestamp-*.mjs
+
+# 本地 SSH 密钥（勿入库）
+.ssh/
+# 离线交付压缩包（构建产物，不入库）
+portfolio-offline-*.zip
